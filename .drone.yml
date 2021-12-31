@@ -54,6 +54,3 @@ steps:
     - DBUILD_REPO_URL=${DRONE_REPO_LINK}
     - DBUILD_SITE_URL=https://openebs.io
     - ARCH=${DRONE_STAGE_ARCH}
-  commands:
-  - export DBUILD_ARGS=--build-arg DBUILD_DATE=$(shell date -u +'%Y-%m-%dT%H:%M:%SZ') --build-arg DBUILD_REPO_URL="https://github.com/zebardy/maya" --build-arg DBUILD_SITE_URL="https://openebs.io" --build-arg ARCH=$(uname -m)
-  - docker build -t "$repo:2.11.0" $DBUILD_ARGS .
