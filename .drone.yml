@@ -17,7 +17,7 @@ steps:
 - name: build
   image: golang:1.14.7
   commands:
-  - apk update
+  - apt update
   - apk add gcc jq zip conntrack
   - apk add libudev-dev
   - make upgrade-image.arm64
