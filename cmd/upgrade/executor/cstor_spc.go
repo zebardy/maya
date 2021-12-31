@@ -102,7 +102,15 @@ func (u *UpgradeOptions) RunCStorSPCUpgrade(cmd *cobra.Command) error {
 		u.cstorSPC.spcName,
 		u.fromVersion,
 		u.toVersion)
-
+	
+	if not apis.IsCurrentVersionValid(u.fromVersion) {
+		return errors.Errorf("Invalid from version %s", u.fromVersion)
+	}
+	
+	if not apis.IsDesiredVersionValid(u.toVersion) {
+		return errors.Errorf("Invalid to version %s", u.toVersion)
+	}
+	
 	if apis.IsCurrentVersionValid(u.fromVersion) && apis.IsDesiredVersionValid(u.toVersion) {
 		err := upgrader.Exec(u.fromVersion, u.toVersion,
 			u.resourceKind,
