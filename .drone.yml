@@ -29,7 +29,7 @@ steps:
   - GIT_COMMIT="$(git rev-parse HEAD)"
   - echo $GIT_COMMIT >> $SRC_REPO/GITCOMMIT
   - mkdir -p $DST_REPO
-  - rsync -az ${TRAVIS_BUILD_DIR}/ ${DST_REPO}/
+  - rsync -az ${SRC_REPO}/ ${DST_REPO}/
   - export TRAVIS_BUILD_DIR=$DST_REPO
   - cd $DST_REPO
   - fi
