@@ -28,7 +28,7 @@ steps:
   - echo "But first, get the git revision from $SRC_REPO"
   - export GIT_COMMIT="$(git rev-parse HEAD)"
   - echo $GIT_COMMIT >> $SRC_REPO/GITCOMMIT
-  - export $RELEASE_TAG="2.11.0"
+  - export RELEASE_TAG="2.11.0"
   - mkdir -p $DST_REPO
   - echo "rsync -az $SRC_REPO/ $DST_REPO/"
   - rsync -az "$SRC_REPO/" "$DST_REPO/"
