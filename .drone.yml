@@ -18,6 +18,6 @@ steps:
   image: golang:1.14.7
   commands:
   - apt update
-  - apk add gcc jq zip conntrack
-  - apk add libudev-dev
+  - apt install -y gcc jq zip conntrack
+  - apt install -y libudev-dev
   - make upgrade-image.arm64
