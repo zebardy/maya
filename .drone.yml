@@ -35,3 +35,5 @@ steps:
   - cd $DST_REPO
   - fi
   - make upgrade
+  - echo "$(pwd)/bin/$PNAME/"
+  - ls -lrt "$(pwd)/bin/$PNAME/"
