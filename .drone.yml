@@ -38,3 +38,17 @@ steps:
   - ls -lrt "$(pwd)/bin/upgrade/"
   - cp bin/upgrade/upgrade $SRC_REPO/buildscripts/upgrade/
   - ls -lrt "$SRC_REPO/buildscripts/upgrade/"
+
+-
+- name: docker
+  image: plugins/docker
+  settings:
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+    repo: zebardy/m-upgrade
+  commands:
+  - cd buildscripts/upgrade
+  - export DBUILD_ARGS=--build-arg DBUILD_DATE=$(shell date -u +'%Y-%m-%dT%H:%M:%SZ') --build-arg DBUILD_REPO_URL="https://github.com/zebardy/maya" --build-arg DBUILD_SITE_URL="https://openebs.io --build-arg ARCH=$(uname -m)
+  - docker build -t "$repo:2.11.0" $DBUILD_ARGS .
