@@ -47,7 +47,7 @@ steps:
     password:
       from_secret: docker_password
     repo: zebardy/m-upgrade
-    context: buildscripts/upgrade
+    context: /drone/src/buildscripts/upgrade/
     tag: "2.11.0"
     build_args:
     - DBUILD_DATE=${DRONE_BUILD_STARTED}
