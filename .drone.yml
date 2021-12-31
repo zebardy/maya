@@ -18,8 +18,9 @@ steps:
   image: golang:1.14.7
   commands:
   - apt update
-  - apt install -y -qq gcc jq zip conntrack
-  - apt install -y -qq libudev-dev
+  - apt-get install -y -qq -o=Dpkg::Use-Pty=0 gcc jq zip conntrack
+  - apt-get install -y -qq -o=Dpkg::Use-Pty=0 libudev-dev
+  - apt-get install -y -qq -o=Dpkg::Use-Pty=0 rsync
   - SRC_REPO="$(pwd)"
   - DST_REPO="$GOPATH/src/github.com/openebs/maya"
   - if [ "$SRC_REPO" != "$DST_REPO" ]; then
