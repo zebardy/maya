@@ -21,12 +21,12 @@ steps:
   - apt-get install -y gcc jq zip conntrack
   - apt-get install -y libudev-dev
   - apt-get install -y rsync
-  - SRC_REPO="$(pwd)"
-  - DST_REPO="$GOPATH/src/github.com/openebs/maya"
+  - export SRC_REPO="$(pwd)"
+  - export DST_REPO="$GOPATH/src/github.com/openebs/maya"
   - if [ "$SRC_REPO" != "$DST_REPO" ]; then
   - echo "Copying from $SRC_REPO to $DST_REPO"
   - echo "But first, get the git revision from $SRC_REPO"
-  - GIT_COMMIT="$(git rev-parse HEAD)"
+  - export GIT_COMMIT="$(git rev-parse HEAD)"
   - echo $GIT_COMMIT >> $SRC_REPO/GITCOMMIT
   - mkdir -p $DST_REPO
   - rsync -az ${SRC_REPO}/ ${DST_REPO}/
