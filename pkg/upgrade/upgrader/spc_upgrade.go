@@ -148,6 +148,7 @@ func verifySPCVersionReconcile(name string) error {
 		klog.Infof("Verifying the reconciliation of version for %s", spcObj.Name)
 		// Sleep equal to the default sync time
 		time.Sleep(10 * time.Second)
+		klog.Infof("Object name - %s", name)
 		spcObj, err = client.Get(name, metav1.GetOptions{})
 		if err != nil {
 			return err
