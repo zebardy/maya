@@ -20,4 +20,5 @@ steps:
   - apt update
   - apt install -y gcc jq zip conntrack
   - apt install -y libudev-dev
-  - make upgrade-image.arm64
+  - echo "" > $GOPATH/src/github.com/openebs/maya/BUILDMETA
+  - make upgrade
