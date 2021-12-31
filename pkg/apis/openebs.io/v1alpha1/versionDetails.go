@@ -46,7 +46,7 @@ func IsCurrentVersionValid(v string) bool {
 // IsDesiredVersionValid verifies the desired version is valid or not
 func IsDesiredVersionValid(v string) bool {
 	desiredVersion := strings.Split(v, "-")[0]
-	klog.V(4).Infof("validDesiredVersion - %s, desiteVersion %s", validDesiredVersio, desiredVersion)
+	klog.V(4).Infof("validDesiredVersion - %s, desiteVersion %s", validDesiredVersion, desiredVersion)
 	return validDesiredVersion == desiredVersion
 }
 
