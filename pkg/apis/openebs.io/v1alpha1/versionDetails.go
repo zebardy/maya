@@ -18,7 +18,8 @@ package v1alpha1
 
 import (
 	"strings"
-
+	
+	"k8s.io/klog"
 	"github.com/openebs/maya/pkg/version"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
@@ -45,6 +46,7 @@ func IsCurrentVersionValid(v string) bool {
 // IsDesiredVersionValid verifies the desired version is valid or not
 func IsDesiredVersionValid(v string) bool {
 	desiredVersion := strings.Split(v, "-")[0]
+	klog.V(4).Infof("validDesiredVersion - %s, desiteVersion %s", validDesiredVersio, desiredVersion)
 	return validDesiredVersion == desiredVersion
 }
 
