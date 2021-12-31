@@ -35,5 +35,6 @@ steps:
   - cd $DST_REPO
   - fi
   - make upgrade
-  - echo "$(pwd)/bin/$PNAME/"
-  - ls -lrt "$(pwd)/bin/$PNAME/"
+  - ls -lrt "$(pwd)/bin/upgrade/"
+  - cp bin/upgrade/upgrade $SRC_REPO/buildscripts/upgrade/
+  - ls -lrt "$SRC_REPO/buildscripts/upgrade/"
