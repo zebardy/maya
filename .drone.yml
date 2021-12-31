@@ -18,9 +18,9 @@ steps:
   image: golang:1.14.7
   commands:
   - apt-get update -qq
-  - apt-get install -y gcc jq zip conntrack
-  - apt-get install -y libudev-dev
-  - apt-get install -y rsync
+  - apt-get install -y -qq gcc jq zip conntrack
+  - apt-get install -y -qq libudev-dev
+  - apt-get install -y -qq rsync
   - export SRC_REPO="$(pwd)"
   - export DST_REPO="$GOPATH/src/github.com/openebs/maya"
   - if [ "$SRC_REPO" != "$DST_REPO" ]; then
@@ -29,8 +29,8 @@ steps:
   - export GIT_COMMIT="$(git rev-parse HEAD)"
   - echo $GIT_COMMIT >> $SRC_REPO/GITCOMMIT
   - mkdir -p $DST_REPO
-  - echo "rsync -az ${SRC_REPO}/ ${DST_REPO}/"
-  - rsync -az "${SRC_REPO}/" "${DST_REPO}/"
+  - echo "rsync -az $SRC_REPO/ $DST_REPO/"
+  - rsync -az "$SRC_REPO/" "$DST_REPO/"
   - export TRAVIS_BUILD_DIR=$DST_REPO
   - cd $DST_REPO
   - fi
